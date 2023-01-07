@@ -745,55 +745,6 @@ onmousemove = (e) => {
 
         //3. check the functions
         for(let i=0; i<connection.functions.length; i++) {
-            // idea: create a circle at the mouse that expands outwards by a certain rate (i guess by one pixel? idk) until it intersects the function. the radius is the distance to the function and if the radius < CLOSE_DISTANCE then draw the label
-            // idea: create a shape that wraps around the function by CLOSE_DISTANCE and if the mouse is inside that then draw the label
-            //   - you could do this one by getting the perpendicular vector at every point (i guess per the resolution of the function) with length CLOSE_DISTANCE and make a shape out of all those vectors
-            //  - then use RAY CASTING (https://stackoverflow.com/a/218081) to check if the mouse is inside the polygon
-
-            // METHOD 1: we will simulate the function by drawing a point and incrementing right and seeing if the mouse is "close" to the point. this works well when the curve has a low slope but does not work well for curves with high slopes
-            /*let isInBounds: boolean = false;
-            let leftX: number = e.clientX - CLOSE_DISTANCE;
-
-            while(leftX < e.clientX + CLOSE_DISTANCE) {
-                let checkPoint: ScreenPoint = new ScreenPoint(leftX, e.clientY);
-                let checkPointReal: RealPoint = connection.toRealPoint(checkPoint);
-                let closePoint: ScreenPoint = connection.toScreenPoint(new RealPoint(checkPointReal.x, connection.functions[i].f(checkPointReal.x)));
-
-                connection.drawCircle(connection.toRealPoint(closePoint),2,"#0000ff",true);
-                connection.drawCircle(connection.toRealPoint(checkPoint),1,"#ff0000",true);
-
-                if(isScreenPointNear(closePoint, new ScreenPoint(e.clientX, e.clientY))) {
-                    isInBounds = true;
-                    break;
-                }
-
-                // calculate the next iteration
-                let nextCheckPoint: ScreenPoint = new ScreenPoint(leftX+1, e.clientY);
-                let nextCheckPointReal: RealPoint = connection.toRealPoint(nextCheckPoint);
-                let nextClosePoint: ScreenPoint = connection.toScreenPoint(new RealPoint(nextCheckPointReal.x, connection.functions[i].f(nextCheckPointReal.x)));
-
-                // see if the y value between them is too far
-                let dist: number = Math.abs(nextClosePoint.y - closePoint.y);
-
-                if(dist >= 2*CLOSE_DISTANCE && closePoint.y >= 0 && closePoint.y <= cHeight) {
-                    // increment the position for the next collision point 
-                    leftX += 1/(dist/CLOSE_DISTANCE);
-                }
-                else {
-                    leftX += 1;
-                }
-            }
-
-            let funcPoint: ScreenPoint = connection.toScreenPoint(new RealPoint(NEW_POINT.x, connection.functions[i].f(NEW_POINT.x)));
-            if(isScreenPointNear(funcPoint, new ScreenPoint(e.clientX, e.clientY))) {
-                isInBounds = true;
-            }
-
-            if(isInBounds) {
-                connection.refresh();
-                connection.drawText(NEW_POINT, connection.functions[i].toString(), "#00ff00", 20);
-            }*/
-
             // METHOD 2: create a first order taylor series for the function at that x value and then use https://stackoverflow.com/a/24044684
             // this method is better as the label will always show however it does not work very well for when the line has a VERY high slope (i.e. x^100)
 
