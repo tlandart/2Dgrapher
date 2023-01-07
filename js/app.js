@@ -216,7 +216,7 @@ class Connection {
     refresh() {
         this.drawGrid();
         this.updateMenu();
-        console.log("refresh");
+        //console.log("refresh");
     }
     toScreenPoint(p) {
         // translate it on the original grid so the cameraPos is the new origin (w cameraPos)

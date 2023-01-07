@@ -253,7 +253,7 @@ class Connection {
     refresh() {
         this.drawGrid();
         this.updateMenu();
-        console.log("refresh");
+        //console.log("refresh");
     }
 
     public toScreenPoint(p: RealPoint) {
