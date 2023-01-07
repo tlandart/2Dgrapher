@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>2D GRAPHER</title>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="libraries/math.js"></script>
+        <script>var exports = {math};</script>
+        <link rel="icon" type="image/png" href="images/icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="graph-outer">
+            <canvas class="graph-inner"></canvas>
+            <div class="opt-buttons">
+                <button class="opt-button" onclick="changeTheme()"><img src="images/light.png" id="theme-image" alt="Sun icon" draggable="false"></button>
+                <button class="opt-button" onclick="resetView()">R</button>
+                <button class="opt-button" onclick="zoomIn()">+</button>
+                <button class="opt-button" onclick="zoomOut()">-</button>
+            </div>
+            <div class="menu">
+                <span class="menu-label">Position: (...., ....)</span>
+                <input class="menu-input" type="text" placeholder="(x,y)" onkeydown="teleportToInput(event)" onfocus="this.select();">
+            </div>
+            <div class="input-holder">
+                <img src="images/arrow.png" class="input-holder-arrow" alt="Arrow pointing up" draggable="false">
+                <div style="margin-top:20px; width:100%">
+                    <span id="function-input-box-label" class="input-box-label">f(x) = </span><input id="function-input-box" class="input-box" type="text" onfocus="this.select();" placeholder="x^2" onkeydown="loadFunctionKeyPress(event)"><button id="function-input-button" class="input-button" onclick="loadFunction()">Add</button><button id="function-input-undo" class="input-button" onclick="undoFunction()">Undo</button>
+                </div>
+                <div style="margin-top:20px; width:100%">
+                    <span id="point-input-box-label" class="input-box-label">(x,y) = </span><input id="point-input-box" class="input-box" type="text" onfocus="this.select();" placeholder="(1+1,sin(3))" onkeydown="loadPointKeyPress(event)"><button id="point-input-button" class="input-button" onclick="loadPoint()">Add</button><button id="point-input-undo" class="input-button" onclick="undoPoint()">Undo</button>
+                </div>
+                <div style="margin-top:20px; width:100%">
+                    <span id="line-input-box-label" class="input-box-label">(x1,y1),(x2,y2) = </span><input id="line-input-box" class="input-box" type="text" onfocus="this.select();" placeholder="(3,0),(1+1,2)" onkeydown="loadLineKeyPress(event)"><button id="line-input-button" class="input-button" onclick="loadLine()">Add</button><button id="line-input-undo" class="input-button" onclick="undoLine()">Undo</button>
+                </div>
+                <div class="bottom-bar">
+                    <span>By <a href="https://github.com/tlandart">Theo Landart</a> using TypeScript and the <a href="https://mathjs.org/">math.js</a> library.</span>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/app.js"></script>
+</html>

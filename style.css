@@ -1,0 +1,242 @@
+:root {
+    --primary: lightseagreen;
+    --primarydark: rgb(0, 121, 115);
+}
+
+body {
+    display:block;
+    position:absolute;
+    overflow:hidden;
+    box-sizing: border-box;
+    background-color: white;
+    padding:0;
+    margin:0;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.menu {
+    position:absolute;
+    overflow:hidden;
+    top:0;
+    left:0;
+    background-color:var(--primary);
+    box-shadow:0px 0px 7px rgba(0,0,0,0.3);
+    font: 20px Roboto;
+    transition:0.1s;
+}
+
+.menu:hover {
+    font: 30px Roboto;
+}
+
+.menu-label {
+    user-select: none;
+    color: white;
+}
+
+.menu-input[type=text] {
+    font: 20px Roboto;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    opacity:0;
+    user-select: none;
+    color: black;
+    border:none;
+    background-color:white;
+    outline:none;
+    transition:0.1s;
+}
+
+.menu-input[type=text]:hover {
+    display:auto;
+    font-size: 30px;
+    opacity:0;
+}
+
+.menu-input[type=text]:hover:focus {
+    display:auto;
+    font-size: 30px;
+    opacity:1;
+}
+
+.menu-input[type=text]:hover {
+    display:auto;
+    font-size: 30px;
+    opacity:1;
+}
+
+.menu-input[type=text]::placeholder {
+    color:rgba(0, 0, 0, 0.4);
+}
+
+.input-holder {
+    position:absolute;
+    overflow:hidden;
+    user-select: none;
+    bottom:0;
+    left:0;
+    right:0;
+    height:250px;
+    background-color:var(--primary);
+    box-shadow:0px 0px 7px rgba(0,0,0,0.3);
+    align-content:center;
+    text-align:center;
+    box-sizing: border-box;
+    transform:translate(0px,200px);
+    transition:0.3s;
+}
+
+.input-holder:hover {
+    transform:translate(0px,0px);
+}
+
+.input-holder-arrow {
+    user-select: none;
+    height:25px;
+    width:100%;
+    box-sizing:border-box;
+    margin-top:12px;
+    margin-bottom:13px;
+    object-fit:contain;
+    transition:0.3s;
+}
+
+.input-holder:hover > .input-holder-arrow {
+    transform:scaleY(-1);
+}
+
+.input-box[type=text] {
+    font: 20px Roboto;
+    user-select: none;
+    color: white;
+    border:none;
+    border-bottom:2px solid white;
+    background-color:rgba(0, 0, 0, 0);
+    outline:none;
+    width:150px;
+    transition:0.3s;
+}
+
+.input-box[type=text]:focus {
+    background-color:rgba(0, 0, 0, 0.1);
+    border-bottom:3px solid white;
+}
+
+.input-box[type=text]::placeholder {
+    color:rgba(0, 0, 0, 0.4);
+}
+
+.input-box-label {
+    font: 20px Roboto;
+    user-select: none;
+    color: white;
+}
+
+.input-button {
+    margin-bottom:5px;
+    margin-left:10px;
+    cursor:pointer;
+    font: bold 20px Roboto;
+    user-select: none;
+    color:white;
+    background-color:rgb(0,0,0,0);
+    text-align:center;
+    align-content:center;
+    border-width:0;
+    border-radius:20%;
+    box-shadow:0px 0px 0px rgba(0,0,0,0.3);
+    transition-duration:0.3s;
+}
+
+.input-button:hover {
+    background-color:var(--primarydark);
+    box-shadow:0px 0px 7px rgba(0,0,0,0.3);
+}
+
+.opt-buttons {
+    position:absolute;
+    overflow:hidden;
+    top:0;
+    right:0;
+    padding:5px;
+    width:39px;
+}
+
+.opt-button {
+    margin-bottom:5px;
+    cursor:pointer;
+    font: bold 30px Roboto;
+    user-select: none;
+    color:white;
+    background-color:var(--primary);
+    text-align:center;
+    align-content:center;
+    border-width:0;
+    border-radius:50%;
+    width:100%;
+    height:auto;
+    box-shadow:0px 0px 7px rgba(0,0,0,0.3);
+    transition-duration:0.3s;
+    height:39px;
+    width:39px;
+}
+
+.opt-button > img {
+    position:absolute;
+    width:26px;
+    height:26px;
+    top:11px;
+    left:12px;
+}
+
+.opt-button:hover {
+    background-color:var(--primarydark);
+    border-radius:35%;
+}
+
+.graph-outer {
+    position:absolute;
+    overflow:hidden;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.graph-inner {
+    position:relative;
+    display:block;
+}
+
+.bottom-bar {
+    position:absolute;
+    bottom:0;
+    margin:5px;
+    font: 16px Roboto;
+    color:rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.bottom-bar > span > a {
+    color:rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width:600px) {
+    .input-box-label {
+        font: 16px Roboto;
+    }
+    .input-box[type=text] {
+        width:100px;
+    }
+    .input-holder {
+        transform:translate(0px,160px);
+    }
+    .input-holder-arrow {
+        margin-top:30px;
+    }
+}
