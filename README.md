@@ -1,3 +1,6 @@
+# LIVE DEMO
+https://2dgrapher.netlify.app/
+
 # 2Dgrapher
  Simple 2D cartesian grapher for functions, points, and line segments.
 
